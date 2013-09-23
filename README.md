@@ -1,0 +1,4 @@
+elements-singleton
+==================
+
+Element: Singleton

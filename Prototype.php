@@ -25,6 +25,6 @@ abstract class Singleton_Prototype implements Singleton_Interface
      */
     public static function instance()
     {
-        return static::$instance===null ? new static : static::$instance;
+        return static::$instance===null ? static::$instance = new static : static::$instance;
     }
 }

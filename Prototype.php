@@ -4,7 +4,7 @@ namespace attitude\Elements;
 
 abstract class Singleton_Prototype implements Singleton_Interface
 {
-    protected static $instance = null;
+    protected static $instances = array();
 
     /**
      * Class constructor method
@@ -25,6 +25,8 @@ abstract class Singleton_Prototype implements Singleton_Interface
      */
     public static function instance()
     {
-        return static::$instance===null ? static::$instance = new static : static::$instance;
+        $class_name = get_called_class();
+        
+        return ! isset(static::$instances[$class_name]) ? static::$instances[$class_name] = new static : static::$instances[$class_name];
     }
 }
